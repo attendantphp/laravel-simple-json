@@ -30,7 +30,13 @@ class LaravelSimpleJsonCollectionParser implements CollectionParser
 
     private function resolveFields()
     {
-        $fields = collect($this->request->input('fields'));
+        $fields = collect($this->request->input('fields'))
+            ->mapWithKeys(function ($fields, $key) {
+                return collect(explode(',', $fields))
+                    ->filter()
+                    ->unique()
+                    ->toArray();
+            });
 
         if (! $fields->has($this->resource->getType())) {
             $this->fields = $this->resource->getFields();
