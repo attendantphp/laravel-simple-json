@@ -1,0 +1,30 @@
+{
+    "name": "attendant/laravel-simple-json",
+    "license": "MIT",
+    "description": "A simple API server for Laravel.",
+    "authors": [
+        {
+            "name": "Aidan Casey",
+            "email": "aidan@caseyhouse.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Attendant\\Laravel\\SimpleJson\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Attendant\\Laravel\\SimpleJson\\LaravelSimpleJsonServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "attendant/core": "dev-main",
+        "illuminate/database": "^9.44",
+        "illuminate/http": "^9.44",
+        "illuminate/pagination": "^9.44"
+    }
+}
